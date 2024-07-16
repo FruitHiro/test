@@ -4,8 +4,7 @@ import { computed } from "vue";
 const props = defineProps(['data']);
 
 const ingredientsCount = computed(() => {
-  const ingredients = props.data ?
-      Object.keys(props.data).filter((item) => item.includes('strIngredient') && props.data[item]) : [];
+  const ingredients = Object.keys(props.data).filter((item) => item.includes('strIngredient') && props.data[item]);
 
   return [...Array(ingredients.length).keys()].map((item) => item + 1);
 })
